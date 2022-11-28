@@ -9,7 +9,12 @@ function App() {
       setPosts(json);
     });
   }, []);
-  return <p>{posts.activity}</p>;
+  return (
+    <>
+      <p>{posts.activity}</p>
+      <button>New suggestion</button>
+    </>
+  );
 }
 
 export default App;
