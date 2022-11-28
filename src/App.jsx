@@ -21,7 +21,12 @@ function App() {
   return (
     <>
       <div className="activity">{posts.activity}</div>
-      <div className="activity-type">{posts.type}</div>
+      <div className="activity-type">Type: {posts.type}</div>
+      {posts.link ? (
+        <a href={posts.link} target="_blank" rel="noreferrer">
+          More information
+        </a>
+      ) : null}
       <button className="new-button" onClick={getNewSuggestion}>
         New suggestion
       </button>
