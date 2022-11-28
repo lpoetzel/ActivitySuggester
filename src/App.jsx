@@ -1,12 +1,15 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import getActitivy from "./api";
 
 function App() {
-  return (
-    <p>
-      Cleanedup React App
-    </p>
-  );
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    getActitivy().then((json) => {
+      setPosts(json);
+    });
+  }, []);
+  return <p>{posts.activity}</p>;
 }
 
 export default App;
