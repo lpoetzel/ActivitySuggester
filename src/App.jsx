@@ -20,8 +20,11 @@ function App() {
 
   return (
     <>
-      <p>{posts.activity}</p>
-      <button onClick={getNewSuggestion}>New suggestion</button>
+      <div className="activity">{posts.activity}</div>
+      <div className="activity-type">{posts.type}</div>
+      <button className="new-button" onClick={getNewSuggestion}>
+        New suggestion
+      </button>
     </>
   );
 }
