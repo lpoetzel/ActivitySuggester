@@ -20,7 +20,7 @@ function App() {
   const getActitivy = () => {
     const response = axios
       .get(
-        `http://www.boredapi.com/api/activity?minprice=0&maxprice=${price}&type=${type}`
+        `https://www.boredapi.com/api/activity?minprice=0&maxprice=${price}&type=${type}`
       )
       .then((response) => setPosts(response.data));
     return response;
