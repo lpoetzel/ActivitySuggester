@@ -33,25 +33,17 @@ function App() {
     getActitivy();
   };
   return (
-    <>
-      <div className="activity">{posts.activity}</div>
+    <div className="wrapper">
+      <p className="activity">{posts.activity}</p>
       <div className="activity-type">Type: {posts.type}</div>
       {posts.link ? (
         <a href={posts.link} target="_blank" rel="noreferrer">
           More information
         </a>
       ) : null}
-      <div>Price: {posts.price}</div>
-      <label>
-        Max Price:
-        <input
-          className="max-price"
-          type="text"
-          placeholder="e.g. 1.0"
-          onChange={(e) => setPrice(e.target.value)}
-        />
-      </label>
-      <label>
+      <div className="price">Price: {posts.price}</div>
+
+      <label className="label">
         Type:
         <select onChange={(e) => setType(e.target.value)}>
           <option value="">---</option>
@@ -64,10 +56,21 @@ function App() {
           })}
         </select>
       </label>
+      <br />
+      <label className="label">
+        Max Price:
+        <input
+          className="max-price"
+          type="text"
+          placeholder="e.g. 1.0"
+          onChange={(e) => setPrice(e.target.value)}
+        />
+      </label>
+      <br />
       <button className="new-button" onClick={getNewSuggestion}>
         New suggestion
       </button>
-    </>
+    </div>
   );
 }
 
