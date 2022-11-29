@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
+const activities = [
+  "education",
+  "recreational",
+  "social",
+  "diy",
+  "charity",
+  "cooking",
+  "relaxation",
+  "music",
+  "busywork",
+];
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState(999);
+  const [type, setType] = useState("");
   const getActitivy = () => {
     const response = axios
-      .get("https://www.boredapi.com/api/activity")
-      .then((response) => setPosts(response.data));
-    return response;
-  };
-  const getMaxPrice = () => {
-    const response = axios
-      .get(`http://www.boredapi.com/api/activity?minprice=0&maxprice=${price}`)
+      .get(
+        `http://www.boredapi.com/api/activity?minprice=0&maxprice=${price}&type=${type}`
+      )
       .then((response) => setPosts(response.data));
     return response;
   };
@@ -34,15 +42,28 @@ function App() {
         </a>
       ) : null}
       <div>Price: {posts.price}</div>
-      <input
-        className="max-price"
-        type="text"
-        placeholder="e.g. 1.0"
-        onChange={(e) => setPrice(e.target.value)}
-      />
-      <button className="price-button" onClick={getMaxPrice}>
-        Max price
-      </button>
+      <label>
+        Max Price:
+        <input
+          className="max-price"
+          type="text"
+          placeholder="e.g. 1.0"
+          onChange={(e) => setPrice(e.target.value)}
+        />
+      </label>
+      <label>
+        Type:
+        <select onChange={(e) => setType(e.target.value)}>
+          <option value="">---</option>
+          {activities.map((activity, i) => {
+            return (
+              <option key={i} value={activity}>
+                {activity}
+              </option>
+            );
+          })}
+        </select>
+      </label>
       <button className="new-button" onClick={getNewSuggestion}>
         New suggestion
       </button>
