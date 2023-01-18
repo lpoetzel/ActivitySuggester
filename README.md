@@ -6,3 +6,6 @@ This is a simple Activity suggester web application built using Html,CSS,ReactJS
 ## Demo
  
 https://activity-suggester.netlify.app/
+
+![image](https://user-images.githubusercontent.com/104060521/213171918-1d2ebf2b-f57b-48ea-863c-2a2fbf334d60.png)
+
